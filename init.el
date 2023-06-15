@@ -163,7 +163,8 @@
          ("M-g i" . consult-imenu)
          ("M-g o" . consult-outline)
          ("M-s k" . consult-keep-lines)
-         ("M-s l" . consult-line)))
+         ("M-s l" . consult-line))
+  :config (consult-customize consult-buffer :preview-key "C-."))
 
 ;; (use-package jinx
 ;;   :hook (after-init . global-jinx-mode)
@@ -199,6 +200,7 @@
 (use-package haskell-mode :defer t
   :hook (haskell-mode . interactive-haskell-mode))
 (use-package markdown-mode :defer t)
+(use-package nix-mode :defer t)
 ;; (use-package racket-mode :defer t)
 (use-package yaml-mode :defer t)
 
