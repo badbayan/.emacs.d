@@ -162,8 +162,12 @@
          ("M-g g" . consult-goto-line)
          ("M-g i" . consult-imenu)
          ("M-g o" . consult-outline)
-         ("M-s k" . consult-keep-lines)
-         ("M-s l" . consult-line))
+         ("M-s d" . consult-find)
+         ("M-s g" . consult-grep)
+         ("M-s G" . consult-git-grep)
+         ("M-s r" . consult-ripgrep)
+         ("M-s l" . consult-line)
+         ("M-s k" . consult-keep-lines))
   :config (consult-customize consult-buffer :preview-key "C-."))
 
 ;; (use-package jinx
@@ -209,8 +213,8 @@
   :init
   (setq
    corfu-auto t
-   corfu-auto-delay 0
-   corfu-auto-prefix 0
+   ; corfu-auto-delay 0
+   corfu-auto-prefix 2
    corfu-echo-delay 0
    corfu-popupinfo-delay 0)
   :config (corfu-echo-mode 1)
