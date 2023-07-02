@@ -70,6 +70,11 @@
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 
+(set-face-attribute 'default nil :family "Monospace")
+(set-face-attribute 'fixed-pitch nil :family "Monospace")
+(set-face-attribute 'fixed-pitch-serif nil :family "Monospace")
+(set-face-attribute 'variable-pitch nil :family "Sans Serif")
+
 (electric-indent-mode 1)
 (electric-pair-mode 1)
 ;; (fido-vertical-mode 1)
@@ -213,7 +218,7 @@
   :init
   (setq
    corfu-auto t
-   ; corfu-auto-delay 0
+   ;; corfu-auto-delay 0
    corfu-auto-prefix 2
    corfu-echo-delay 0
    corfu-popupinfo-delay 0)
