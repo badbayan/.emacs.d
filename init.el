@@ -66,7 +66,10 @@
  whitespace-style '(face tabs trailing newline)
  word-wrap-by-category t)
 (load custom-file t)
-(modify-category-entry '(32 . 47) ?| (category-table) t)
+(modify-category-entry '(32 . 47) ?|)
+(modify-category-entry '(58 . 64) ?|)
+(modify-category-entry '(91 . 94) ?|)
+(modify-category-entry '(123 . 125) ?|)
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 
