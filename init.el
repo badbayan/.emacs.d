@@ -88,6 +88,7 @@
 (recentf-mode 1)
 (xterm-mouse-mode 1)
 
+(add-hook 'conf-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; (define-key icomplete-minibuffer-map (kbd "TAB") 'icomplete-force-complete)
