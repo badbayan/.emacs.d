@@ -81,12 +81,14 @@
 (electric-indent-mode 1)
 (electric-pair-mode 1)
 ;; (fido-vertical-mode 1)
-(global-display-line-numbers-mode 1)
+;; (global-display-line-numbers-mode 1)
 (global-visual-line-mode 1)
 (global-whitespace-mode 1)
 (mouse-wheel-mode 1)
 (recentf-mode 1)
 (xterm-mouse-mode 1)
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; (define-key icomplete-minibuffer-map (kbd "TAB") 'icomplete-force-complete)
 ;; (define-key icomplete-minibuffer-map (kbd "C-h") 'icomplete-vertical-goto-first)
