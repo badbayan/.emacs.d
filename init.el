@@ -145,12 +145,11 @@
    evil-undo-system 'undo-tree
    evil-want-keybinding nil
    evil-want-C-i-jump nil
-   evil-want-C-u-scroll t)
-  :config
-  (use-package evil-collection
-    :config (evil-collection-init))
-  (use-package evil-easymotion
-    :config (evilem-default-keybindings "SPC")))
+   evil-want-C-u-scroll t))
+(use-package evil-collection :after evil
+  :config (evil-collection-init))
+(use-package evil-easymotion :after evil
+  :config (evilem-default-keybindings "SPC"))
 
 (use-package form-feed
   :config (global-form-feed-mode 1))
