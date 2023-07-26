@@ -58,18 +58,16 @@
  tab-line-exclude-modes nil
  tab-line-new-button-show nil
  tab-width 4
+ truncate-partial-width-windows 32
  use-dialog-box nil
  use-file-dialog nil
  use-short-answers t
  use-system-tooltips nil
  ;; vc-handled-backends nil
+ visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow)
  whitespace-style '(face tabs trailing newline)
  word-wrap-by-category t)
 (load custom-file t)
-(modify-category-entry '(32 . 47) ?|)
-(modify-category-entry '(58 . 64) ?|)
-(modify-category-entry '(91 . 94) ?|)
-(modify-category-entry '(123 . 125) ?|)
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 
@@ -110,7 +108,7 @@
 (global-set-key (kbd "<f8>") 'indent-tabs-mode)
 (global-set-key (kbd "<f9>") 'revert-buffer-with-coding-system)
 
-;;::::::::::::::::::::::::::::::::::::::
+
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -142,6 +140,7 @@
   :hook (after-init . evil-mode)
   :init
   (setq
+   evil-move-beyond-eol t
    evil-search-module 'evil-search
    evil-undo-system 'undo-tree
    evil-want-keybinding nil
@@ -153,6 +152,9 @@
   (use-package evil-easymotion
     :config (evilem-default-keybindings "SPC")))
 
+(use-package form-feed
+  :config (global-form-feed-mode 1))
+
 (use-package minions
   :hook (after-init . minions-mode)
   :init (setq minions-prominent-modes '(flymake-mode)))
@@ -161,7 +163,7 @@
   :init (setq undo-tree-auto-save-history nil)
   :config (global-undo-tree-mode 1))
 
-;;::::::::::::::::::::::::::::::::::::::
+
 
 (use-package consult
   :bind (("C-c M-x" . consult-mode-command)
@@ -209,7 +211,7 @@
    completion-ignore-case t)
   :config (vertico-mode 1))
 
-;;::::::::::::::::::::::::::::::::::::::
+
 
 ;; (use-package go-mode :defer t)
 (use-package haskell-mode :defer t
