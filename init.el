@@ -83,6 +83,7 @@
 (global-visual-line-mode 1)
 (global-whitespace-mode 1)
 (mouse-wheel-mode 1)
+(pixel-scroll-precision-mode 1)
 (recentf-mode 1)
 (xterm-mouse-mode 1)
 
