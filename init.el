@@ -215,7 +215,8 @@
 (setq-default
  auto-mode-alist
  (append
-  '(("CMakeLists\\'" . cmake-ts-mode)
+  '(("CMakeLists\\.txt\\'" . cmake-ts-mode)
+    ("\\.cmake\\'" . cmake-ts-mode)
     ("Dockerfile\\'" . dockerfile-ts-mode)
     ("\\.go\\'" . go-ts-mode)
     ("/go\\.mod\\'" . go-mod-ts-mode)
