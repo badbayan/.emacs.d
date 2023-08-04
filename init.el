@@ -87,7 +87,6 @@
 (recentf-mode 1)
 (xterm-mouse-mode 1)
 
-(add-hook 'conf-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; (define-key icomplete-minibuffer-map (kbd "TAB") 'icomplete-force-complete)
@@ -213,13 +212,44 @@
 
 
 
+(setq-default
+ auto-mode-alist
+ (append
+  '(("CMakeLists\\'" . cmake-ts-mode)
+    ("Dockerfile\\'" . dockerfile-ts-mode)
+    ("\\.go\\'" . go-ts-mode)
+    ("/go\\.mod\\'" . go-mod-ts-mode)
+    ("\\.rs\\'" . rust-ts-mode)
+    ("\\.tsx\\'" . tsx-ts-mode)
+    ("\\.ts\\'" . typescript-ts-mode)
+    ("\\.y[a]?ml\\'" . yaml-ts-mode))
+  auto-mode-alist)
+ major-mode-remap-alist
+ (append
+  '((c-mode . c-ts-mode)
+    (c++-mode . c++-ts-mode)
+    (c-or-c++-mode . c-or-c++-ts-mode)
+    (conf-toml-mode . toml-ts-mode)
+    (csharp-mode . csharp-ts-mode)
+    (css-mode . css-ts-mode)
+    (java-mode . java-ts-mode)
+    (js-mode . js-ts-mode)
+    (js-json-mode . json-ts-mode)
+    (python-mode . python-ts-mode)
+    (ruby-mode . ruby-ts-mode)
+    (sh-mode . bash-ts-mode))
+  major-mode-remap-alist))
+
 ;; (use-package go-mode :defer t)
 (use-package haskell-mode :defer t
   :hook (haskell-mode . interactive-haskell-mode))
 (use-package markdown-mode :defer t)
+(use-package meson-mode :defer t)
 (use-package nix-mode :defer t)
+;; (use-package rust-mode :defer t)
 ;; (use-package racket-mode :defer t)
-(use-package yaml-mode :defer t)
+;; (use-package yaml-mode :defer t)
+(use-package zig-mode :defer t)
 
 (use-package corfu
   :hook (eglot-managed-mode . corfu-mode)
@@ -240,10 +270,15 @@
   (c-ts-mode . eglot-ensure)
   (c++-mode . eglot-ensure)
   (c++-ts-mode . eglot-ensure)
+  (c-or-c++-mode . eglot-ensure)
+  (c-or-c++-ts-mode . eglot-ensure)
   (go-mode . eglot-ensure)
   (go-ts-mode . eglot-ensure)
   (haskell-mode . eglot-ensure)
   (racket-mode . eglot-ensure)
+  (rust-mode . eglot-ensure)
+  (rust-ts-mode . eglot-ensure)
+  (zig-mode . eglot-ensure)
   :init
   (setq-default
    eglot-autoshutdown t

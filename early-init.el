@@ -14,7 +14,7 @@
    (vertical-scroll-bars))
  inhibit-default-init t
  package-enable-at-startup nil
- site-run-file nil)
+ site-run-file "site-start")
 
 (provide 'early-init)
 
